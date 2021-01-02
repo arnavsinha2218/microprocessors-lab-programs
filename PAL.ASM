@@ -26,11 +26,9 @@ AGAIN:  MOV AH, 01H
         INC SI
         INC CL
         JMP AGAIN                                   
-NEXT:  MOV [SI], BYTE PTR '$'               
-        ; STRING INPUT OVER....             
+NEXT:  MOV [SI], BYTE PTR '$'                        
         DEC SI                                        
         MOV CH, CL
-        ; REVERSE THE STRING AND STORE IN RSTRING
         MOV DI, OFFSET RSTRING
 BACK:   MOV AL, [SI]
         MOV [DI], AL
