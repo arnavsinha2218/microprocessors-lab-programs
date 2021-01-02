@@ -16,12 +16,11 @@ RSTRING DB 80H DUP (?)
 START: MOV AX, @DATA
         MOV DS, AX
         DISPLAY MSG1
-        ; TAKE THE STRING FROM KEYBOARD CHARACTER BY CHARACTER 
         MOV SI, OFFSET STRING
         XOR CL, CL
-AGAIN:  MOV AH, 01H    ;read a char from keyboard Al=42
+AGAIN:  MOV AH, 01H    
         INT 21H
-        CMP AL, 0DH      ;BMSCE
+        CMP AL, 0DH      
         JE NEXT
         MOV [SI], AL
         INC SI
