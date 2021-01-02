@@ -22,7 +22,7 @@ START: MOV AX, @DATA
         DISPLAY MSG1
         MOV SI, OFFSET STRING1
         CALL READSTR
-        MOV BL, CL              ; STORE THE LENGTH OF FIRST STRING
+        MOV BL, CL             
         DISPLAY MSG2
         MOV SI, OFFSET STRING2
         CALL READSTR
@@ -36,12 +36,12 @@ START: MOV AX, @DATA
         CALL LEN_DIS
         POP CX
         POP BX
-        CMP CL, BL              ; COMPARE THE LENGTHS
-        JNE FAIL                ; IF LENGTHS ARE EQUAL, PROCESS NEXT STATMENT
+        CMP CL, BL              
+        JNE FAIL                
         MOV SI, OFFSET STRING1
         MOV DI, OFFSET STRING2
         CLD
-CHK:    MOV AL, [SI]            ; COMPARE BOTH THE STRING
+CHK:    MOV AL, [SI]           
         CMP AL, [DI]
         JNE FAIL
         INC SI
