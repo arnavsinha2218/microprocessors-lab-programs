@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<reg51.h>
+char xdata port_at_0xe803;
+char xdata porta_at_0xe800;
+char idataacc_at_0x30;
+delay() 
+{
+int j;
+for(j = 0;j < 800; j++)
+{}
+}
+void main()
+{
+char port,acc,porta;
+port = 0x80; 
+while(1)
+{
+acc = 0x11;
+porta = acc;
+delay();
+acc = 0x22;
+porta = acc;
+delay();
+acc = 0x44;
+porta = acc;
+delay();
+acc = 0x88;
+porta = acc;
+delay();
+}
+}
